@@ -69,6 +69,40 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
+    #hamburger {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  #hamburger {
+    display: block;
+  }
+}
+
     nav {
       margin-top: 10px;
     }
@@ -324,6 +358,7 @@
 <header>
   <h1>Luthfi Hasannurahman</h1>
   <button id="themeToggle" aria-label="Toggle Theme">🌙 Dark Mode</button>
+  <button id="hamburger" aria-label="Toggle Menu">☰</button>
   <nav>
     <a href="#tentang">Tentang</a>
     <a href="#keahlian">Keahlian</a>
@@ -423,6 +458,12 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000 });
+  const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  })
 
   const themeToggle = document.getElementById('themeToggle');
   const userPref = localStorage.getItem('theme');
