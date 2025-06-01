@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Luthfi Hasannurahman">
+  <title>Portofolio - Luthfi Hasannurahman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5a73c0;
+      --secondary: #3b82f6;
+      --bg-light: #f2f6fc;
+      --bg-white: #fff;
+      --text-main: #333;
+      --text-sub: #444;
+    }
+    :root.dark {
+      --primary: #5a73c0;
+      --secondary: #93c5fd;
+      --bg-light: #0f172a;
+      --bg-white: #1e293b;
+      --text-main: #f1f5f9;
+      --text-sub: #cbd5e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    #themeToggle {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: white;
+      color: var(--primary);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .dark #themeToggle {
+      background: var(--bg-white);
+      color: var(--primary);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: white;
+      color: var(--primary);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      background-color: var(--bg-white);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    section[id] {
+      scroll-margin-top: 150px;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 5px solid var(--primary);
+    }
+
+    .profile h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    section {
+      margin-top: 50px;
+    }
+
+    section h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.4em;
+    }
+
+    section p, section ul {
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: var(--secondary);
+    }
+
+.cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.cta a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 50px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+    .pengalaman {
+      border-left: 3px solid var(--primary);
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .pengalaman div {
+      margin-bottom: 15px;
+      color: var(--text-sub);
+    }
+
+    .pengalaman span {
+      display: block;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.project-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  background-color: transparent;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-body {
+  background-color: transparent;
+  padding: 20px;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.project-body h4 {
+  color: #5a73c0;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.project-body p {
+  font-size: 0.95em;
+  flex-grow: 1;
+}
+
+.tech-tags {
+  margin-top: 15px;
+}
+
+.tech-tags span {
+  background-color: #5a73c0;
+  color: #ffffff;
+  font-size: 0.75em;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 4px;
+  display: inline-block;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.project-links a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #5a73c0;
+  border-radius: 8px;
+  padding: 8px;
+  color: #5a73c0;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+  background-color: #5a73c0;
+  color: white;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--primary);
+      color: white;
+      margin-top: 60px;
+    }
+
+    button#topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        width: 90%;
+        margin: 5px auto;
+        display: block;
+        text-align: center;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Luthfi Hasannurahman</h1>
+  <button id="themeToggle" aria-label="Toggle Theme">🌙 Dark Mode</button>
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#keahlian">Keahlian</a>
+    <a href="#pengalaman">Pengalaman</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+<main>
+  <section class="profile" data-aos="fade-down">
+      <img src="img/potokuliaj.jpg" alt="Foto Luthfi" loading="lazy" width="160" height="160">
+      <h2>Luthfi Hasannurahman</h2>
+      Mahasiswa S1 Sistem Informasi Universitas Merdeka Malang<br>
+  </section>
+
+  <section id="tentang" data-aos="fade-up">
+    <h3>Tentang Saya</h3>
+    <div>
+        <p>Halo, saya <strong>Luthfi Hasannurahman</strong>!</p>
+    <p>Saya adalah Mahasiswa Semester 4 Program Studi Sistem Informasi dengan <strong>NIM 23083000059</strong> yang saat ini sedang menempuh pendidikan S1 di Fakultas Teknologi Informasi, Universitas Merdeka Malang, <strong>Kelas 4B</strong>. Saya memiliki minat yang besar dalam bidang teknologi dan pengembangan sistem informasi. Saya berkomitmen untuk terus belajar dan mengembangkan kemampuan agar dapat memberikan kontribusi di dunia teknologi dan industri di masa depan.</p>
+  </div>
+  </section>
+
+  <section id="keahlian" data-aos="fade-up">
+    <h3>Keahlian</h3>
+    <ul>
+      <li>Frontend Development (HTML, CSS, JavaScript)</li>
+      <li>Backend Development (PHP, Java)</li>
+      <li>Database & Tools (MySQL & PostgreSQL, Git & Github, Docker)</li>
+    </ul>
+  </section>
+
+    <section id="pengalaman" data-aos="fade-up">
+    <h3>Pengalaman</h3>
+    <div class="pengalaman">
+      <div><span>April 2025 - Sekarang</span>
+      <p>Juru Masak & Kasir - Nakamse'</p></div>
+    Sebagai juru masak dan kasir di Nakamse', saya bertanggung jawab dalam menyiapkan berbagai menu makanan sesuai standar kualitas dan kebersihan yang telah ditetapkan. Selain itu, saya juga menjalankan tugas sebagai kasir, melayani transaksi pembayaran, serta memberikan pelayanan terbaik kepada pelanggan. Pengalaman ini membekali saya dengan kemampuan multitasking, komunikasi yang baik, serta keterampilan dalam mengelola waktu dan bekerja di bawah tekanan.</div>
+    </div>
+  </section>
+
+  <section id="portofolio" data-aos="fade-up">
+  <h3>Portofolio Proyek</h3>
+  <div class="projects">
+    <article class="project-card">
+      <div class="project-body">
+        <h4>Kalkulator BMI</h4>
+        <p>Aplikasi kalkulator BMI sederhana berfungsi untuk menghitung indeks massa tubuh berdasarkan berat dan tinggi badan pengguna, serta memberikan kategori status berat badan pengguna.</p>
+        <div class="tech-tags">
+          <span>Java</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/LuthfiHasannurahman/UTS_BMIkalkulator" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-body">
+        <h4>CRUD</h4>
+        <p>Aplikasi CRUD sederhana yang memungkinkan pengguna untuk membuat data baru, membaca atau menampilkan data yang sudah ada, memperbarui data, serta menghapus data secara efisien.</p>
+        <div class="tech-tags">
+          <span>Java</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/LuthfiHasannurahman/UAS-CRUD-daspem" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <section class="cta" data-aos="zoom-in">
+    <h4>Tertarik bekerja sama dengan saya?</h4>
+    <a href="#kontak">Hubungi Saya</a>
+  </section>
+
+  <section id="kontak" data-aos="fade-up">
+    <h3>Kontak Saya</h3>
+    <p>Email: <a href="mailto:lhasannurahman@gmail.com"><strong>lhasannurahman@gmail.com</strong></a></p>
+    <p>Whatsapp: <a href="https://wa.me/6285752012590" target="_blank"><strong>+6285752012590</strong></a></p>
+    <div class="social-links">
+      <a href="https://instagram.com/luthfihnr" target="_blank">Instagram</a>
+      <a href="https://linkedin.com/in/luthfi-hasannurahman" target="_blank">LinkedIn</a>
+      <a href="https://github.com/LuthfiHasannurahman" target="_blank">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Luthfi Hasannurahman. All rights reserved.
+</footer>
+
+<button id="topBtn" aria-label="Kembali ke atas" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000 });
+
+  const themeToggle = document.getElementById('themeToggle');
+  const userPref = localStorage.getItem('theme');
+  if (userPref === 'dark') {
+    document.documentElement.classList.add('dark');
+    themeToggle.textContent = '☀️ Light Mode';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    themeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+
+</body>
+</html>
